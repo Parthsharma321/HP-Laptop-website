@@ -494,7 +494,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.6s ease, filter 0.3s ease, opacity 0.3s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            opacity: 0.9;
+        }
+
+        .gallery-item img.loaded {
+            opacity: 1;
+            filter: none;
         }
 
         .gallery-item:hover img {
@@ -946,27 +953,27 @@
             <div class="gallery-grid">
                 <!-- Large Item -->
                 <div class="gallery-item large reveal-on-scroll">
-                    <img src="./ChatGPT Image Jul 2, 2026, 08_35_45 PM.png" alt="HP 245 G10 Front View" loading="lazy" decoding="async">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 08_35_45 PM.png" alt="HP 245 G10 Front View" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
                     <div class="gallery-caption">Sleek Front Profile</div>
                 </div>
                 <!-- Standard Item -->
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="./ChatGPT Image Jul 2, 2026, 08_43_47 PM.png" alt="Keyboard Detail" loading="lazy" decoding="async">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 08_43_47 PM.png" alt="Keyboard Detail" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
                     <div class="gallery-caption">Precision Keyboard</div>
                 </div>
                 <!-- Standard Item -->
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="./ChatGPT Image Jul 2, 2026, 08_57_01 PM.png" alt="Side Ports" loading="lazy" decoding="async">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 08_57_01 PM.png" alt="Side Ports" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
                     <div class="gallery-caption">Connectivity Hub</div>
                 </div>
                 <!-- Wide Item -->
                 <div class="gallery-item wide reveal-on-scroll">
-                    <img src="./ChatGPT Image Jul 2, 2026, 09_24_22 PM.png" alt="Lifestyle Usage" loading="lazy" decoding="async">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 09_24_22 PM.png" alt="Lifestyle Usage" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
                     <div class="gallery-caption">Work Anywhere</div>
                 </div>
                 <!-- Standard Item -->
                 <div class="gallery-item reveal-on-scroll">
-                    <img src="./ChatGPT Image Jul 2, 2026, 09_30_10 PM.png" alt="Display Quality" loading="lazy" decoding="async">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 09_30_10 PM.png" alt="Display Quality" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
                     <div class="gallery-caption">Vivid FHD Display</div>
                 </div>
             </div>
@@ -1189,11 +1196,35 @@
             document.body.style.overflow = 'auto';
         };
 
+        const loadGalleryImage = (img) => {
+            if (!img || img.dataset.loaded === 'true') return;
+            const src = img.getAttribute('data-src');
+            if (!src) return;
+
+            img.src = src;
+            img.dataset.loaded = 'true';
+            img.classList.add('loaded');
+        };
+
+        const galleryObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadGalleryImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '200px 0px 200px 0px' });
+
+        document.querySelectorAll('.gallery-image').forEach(img => {
+            galleryObserver.observe(img);
+        });
+
         galleryCards.forEach(card => {
             card.addEventListener('click', () => {
                 const img = card.querySelector('img');
                 if (!img) return;
 
+                loadGalleryImage(img);
                 lightboxImg.src = img.src;
                 lightboxImg.alt = img.alt || 'Full screen preview';
                 lightbox.classList.add('active');
