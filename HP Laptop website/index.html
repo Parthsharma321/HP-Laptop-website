@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP 245 14-inch G10 | Premium Performance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #050507;
+            --bg-card: rgba(20, 20, 25, 0.6);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --accent: #00d2ff;
+            --accent-glow: rgba(0, 210, 255, 0.4);
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --gradient: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            --font-main: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .container-large {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .glass {
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+        }
+
+        .text-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- SCROLL PROGRESS --- */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient);
+            width: 0%;
+            z-index: 1001;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(5, 5, 7, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .btn-nav {
+            padding: 10px 24px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+        }
+
+        /* --- HERO SECTION (FIXED) --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 20px 60px; /* Adjusted padding */
+            text-align: center;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: pulse 6s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
+            100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeUp 0.8s forwards 0.2s;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 4rem; /* Slightly reduced for better fit */
+            line-height: 1.15; /* Improved line height */
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeUp 0.8s forwards 0.4s;
+            word-wrap: break-word; /* Prevents overflow */
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            opacity: 0;
+            animation: fadeUp 0.8s forwards 0.6s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeUp 0.8s forwards 0.8s;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 16px 40px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3); }
+
+        .btn-secondary {
+            padding: 16px 40px;
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-glass);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 1320px;
+            position: relative;
+            opacity: 0;
+            animation: fadeUp 1s forwards 1s;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+        
+        .hero-image-container:hover {
+            transform: scale(1.01) translateY(-5px);
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-glass);
+            background: url('./ChatGPT Image Jul 2, 2026, 07_15_10 PM.png') center/cover no-repeat;
+            aspect-ratio: 3/2;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        /* --- DYNAMIC AMBIENT BACKLIGHT GLOWS --- */
+        .hero-image-glow {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: screen;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glow-1 {
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.45) 0%, transparent 70%);
+            top: -10%;
+            left: 15%;
+            animation: floatGlow1 12s infinite alternate ease-in-out;
+        }
+
+        .glow-2 {
+            background: radial-gradient(circle, rgba(121, 40, 202, 0.35) 0%, transparent 70%);
+            bottom: -5%;
+            right: 15%;
+            animation: floatGlow2 15s infinite alternate ease-in-out;
+        }
+
+        .hero-image-container:hover .glow-1 {
+            opacity: 0.85;
+            transform: scale(1.2) translateY(-10px);
+            filter: blur(80px);
+        }
+
+        .hero-image-container:hover .glow-2 {
+            opacity: 0.7;
+            transform: scale(1.25) translateY(10px);
+            filter: blur(80px);
+        }
+
+        @keyframes floatGlow1 {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            50% { transform: translate(-30px, 20px) scale(1.1); opacity: 0.6; }
+            100% { transform: translate(30px, -20px) scale(0.95); opacity: 0.4; }
+        }
+
+        @keyframes floatGlow2 {
+            0% { transform: translate(0, 0) scale(1.05); opacity: 0.3; }
+            50% { transform: translate(25px, -25px) scale(0.9); opacity: 0.55; }
+            100% { transform: translate(-25px, 25px) scale(1.15); opacity: 0.3; }
+        }
+        
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+        }
+
+        /* --- OVERVIEW SECTION --- */
+        .overview {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .overview-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: var(--font-serif);
+        }
+
+        .overview-text p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .feature-list i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .overview-img {
+            width: 100%;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: url('./ChatGPT Image Jul 2, 2026, 08_07_24 PM.png') center/cover no-repeat;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+	.overview-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            /* Adjust 0.3 to 0.6 to make it darker (0.3 = subtle, 0.6 = very dark) */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent); 
+            pointer-events: none; /* Ensures clicks still work if needed */
+        }
+
+        .overview-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 210, 255, 0.15);
+        }
+
+        /* --- SPECS SECTION --- */
+        .specs {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0a0f 100%);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .spec-card {
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .spec-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .spec-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            background: rgba(0, 210, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .spec-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .spec-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery {
+            padding: 100px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 300px;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: zoom-in;
+            border: 1px solid var(--border-glass);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.3s ease, opacity 0.3s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            opacity: 0.9;
+        }
+
+        .gallery-item img.loaded {
+            opacity: 1;
+            filter: none;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(2, 4, 10, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.35s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: min(96vw, 1200px);
+            width: 100%;
+            transform: scale(0.94) translateY(16px);
+            opacity: 0;
+            transition: all 0.35s ease;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        .lightbox img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 18px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: grid;
+            place-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* --- REVIEWS --- */
+        .reviews {
+            padding: 100px 0;
+            background: #08080a;
+        }
+
+        .review-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        
+        .review-slider::-webkit-scrollbar { display: none; }
+
+        .review-card {
+            min-width: 300px;
+            max-width: 350px; /* Added this */
+            width: 100%;      /* Added this */
+            padding: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }   
+
+        .review-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .stars { color: #ffd700; margin-bottom: 15px; }
+        
+        .review-text {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #333;
+            object-fit: cover;
+        }
+
+        .reviewer-info h5 { font-size: 1rem; color: var(--text-main); }
+        .reviewer-info span { font-size: 0.85rem; color: var(--accent); }
+
+        /* --- FAQ --- */
+        .faq {
+            padding: 100px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            padding: 25px;
+            background: var(--bg-glass);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover { background: rgba(255,255,255,0.05); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 25px;
+            background: rgba(0,0,0,0.2);
+            color: var(--text-muted);
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 25px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+
+        /* --- CTA SECTION --- */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(20,20,25,0.8), rgba(10,10,15,0.9));
+            padding: 80px 40px;
+            border-radius: 30px;
+            border: 1px solid var(--border-glass);
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-glass);
+            background: #020203;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 20px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 15px; }
+        .footer-col ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-col ul li a:hover { color: var(--accent); padding-left: 5px; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- BENCHMARK SECTION --- */
+        .performance {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0a0f 0%, var(--bg-dark) 100%);
+        }
+
+        .benchmark-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .benchmark-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .benchmark-tab {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 30px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .benchmark-tab:hover, .benchmark-tab.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.25);
+        }
+
+        .benchmark-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .benchmark-bar-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .benchmark-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        .benchmark-value {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .benchmark-bar-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            height: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            position: relative;
+        }
+
+        .benchmark-bar {
+            height: 100%;
+            border-radius: 10px;
+            width: 0;
+            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .benchmark-bar.accent-gradient {
+            background: var(--gradient);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .benchmark-bar.muted {
+            background: var(--text-muted);
+        }
+
+        .benchmark-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            min-height: 48px;
+        }
+
+        /* --- PORTS SECTION --- */
+        .ports {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #08080c 100%);
+        }
+
+        .ports-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .ports-visual {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ports-image-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            background: #141419;
+        }
+
+        .ports-diagram-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.85;
+            transition: var(--transition);
+        }
+
+        .ports-image-wrapper:hover .ports-diagram-image {
+            opacity: 1;
+        }
+
+        .port-hotspot {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 22px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 5;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .port-hotspot:hover, .port-hotspot.active {
+            background: var(--accent);
+            border-color: transparent;
+            box-shadow: 0 0 0 6px var(--accent-glow), 0 0 15px var(--accent);
+            transform: translate(-50%, -50%) scale(1.25);
+        }
+
+        .hotspot-pulse {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 var(--accent-glow);
+            animation: pulse-hotspot 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse-hotspot {
+            0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 210, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+        }
+
+        .port-details {
+            padding: 40px;
+            border-radius: 20px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .port-details-placeholder {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .port-details-icon-large {
+            font-size: 3rem;
+            color: var(--accent-glow);
+            margin-bottom: 20px;
+            animation: float-icon 3s ease-in-out infinite;
+        }
+
+        @keyframes float-icon {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        .port-details-placeholder h4 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .port-details-content {
+            opacity: 1;
+            transition: var(--transition);
+        }
+
+        .port-details-content.hide {
+            display: none;
+            opacity: 0;
+        }
+
+        .port-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .port-badge {
+            padding: 4px 10px;
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        #port-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .port-desc {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .port-features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .port-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .port-features-list i {
+            color: var(--accent);
+        }
+
+        /* --- CONFIGURATOR SECTION --- */
+        .configurator {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #060609 0%, var(--bg-dark) 100%);
+        }
+
+        .configurator-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 40px;
+        }
+
+        .config-options {
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .config-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .config-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .config-label i {
+            color: var(--accent);
+        }
+
+        .config-chips {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .config-chip {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .config-chip:hover {
+            border-color: var(--accent-glow);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .config-chip.active {
+            border-color: var(--accent);
+            background: rgba(0, 210, 255, 0.05);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .chip-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .chip-price {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .config-summary {
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .config-summary h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 15px;
+        }
+
+        .summary-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .summary-list li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .summary-label {
+            color: var(--text-muted);
+        }
+
+        .summary-val {
+            font-weight: 600;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .price-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            border-top: 1px solid var(--border-glass);
+            padding-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .price-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .price-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .btn-buy-configured {
+            width: 100%;
+            text-align: center;
+            padding: 16px 0;
+            display: block;
+        }
+
+        /* --- DESTRUCTURING MOBILE BURGER STYLES --- */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        body.menu-open nav {
+            height: 100vh !important;
+            background: rgba(5, 5, 7, 0.98) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+        }
+
+        body.menu-open .logo,
+        body.menu-open .btn-nav {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .nav-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-toggle.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .review-slider {
+            scroll-snap-type: x mandatory;
+        }
+
+        .review-card {
+            scroll-snap-align: start;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 3rem; }
+            .overview-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+            .gallery-item.large { grid-column: span 2; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .ports-grid { grid-template-columns: 1fr; }
+            .configurator-grid { grid-template-columns: 1fr; }
+            .config-summary { position: static; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                inset: 0;
+                background: rgba(5, 5, 7, 0.98);
+                backdrop-filter: blur(25px);
+                -webkit-backdrop-filter: blur(25px);
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+                list-style: none;
+            }
+            .nav-links.open {
+                opacity: 1;
+                visibility: visible;
+            }
+            .nav-links a {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+            .hero { padding-top: 120px; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-desc { font-size: 1.05rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; gap: 12px; }
+            .gallery-item.large { grid-column: span 2; grid-row: span 2; }
+            .gallery-item.wide { grid-column: span 2; }
+            .section-title { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .cta h2 { font-size: 2rem; }
+            .ports-visual { padding: 30px 10px; }
+            .config-chips { flex-direction: column; gap: 10px; }
+            .config-chip { width: 100%; padding: 12px 16px; }
+            .benchmark-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">HP <span>245 G10</span></a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#performance">Performance</a></li>
+                <li><a href="#specs">Specifications</a></li>
+                <li><a href="#ports">Ports</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#configurator">Customize</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#buy" class="btn-nav">Buy Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="container-large hero-content">
+            <div class="hero-tagline">Redefine Productivity</div>
+            <h1 class="hero-title">HP 245 14-inch G10 <br><span class="text-gradient">Performance Unleashed</span></h1>
+            <p class="hero-desc">Experience the perfect blend of power and portability. Designed for the modern professional who demands reliability, speed, and elegant design.</p>
+            <div class="hero-buttons">
+                <a href="#overview" class="btn-primary">Explore Features</a>
+                <a href="#gallery" class="btn-secondary">View Gallery</a>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image-glow glow-1"></div>
+                <div class="hero-image-glow glow-2"></div>
+                <div class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-img reveal-on-scroll"></div>
+                <div class="overview-text reveal-on-scroll">
+                    <h3>Engineered for Excellence</h3>
+                    <p>The HP 245 G10 is built on the latest AMD Ryzen™ processors, delivering exceptional multitasking capabilities in a sleek, durable chassis. Whether you're analyzing data, creating content, or connecting globally, this notebook keeps pace with your ambition.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-microchip"></i> AMD Ryzen™ 5 or 7 Processors</li>
+                        <li><i class="fas fa-eye"></i> 14" Diagonal FHD Display</li>
+                        <li><i class="fas fa-battery-full"></i> All-day Battery Life</li>
+                        <li><i class="fas fa-shield-alt"></i> HP Wolf Security for Business</li>
+                        <li><i class="fas fa-wifi"></i> Wi-Fi 6E & Bluetooth 5.3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmark Section -->
+    <section id="performance" class="performance">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">Benchmark Comparison</h2>
+            <p class="section-subtitle reveal-on-scroll">Compare performance benchmarks across different workloads.</p>
+            
+            <div class="benchmark-container glass reveal-on-scroll">
+                <div class="benchmark-tabs">
+                    <button class="benchmark-tab active" data-workload="productivity">Office Productivity</button>
+                    <button class="benchmark-tab" data-workload="creation">Content Creation</button>
+                    <button class="benchmark-tab" data-workload="multitasking">Multi-Tasking</button>
+                </div>
+                
+                <div class="benchmark-bars">
+                    <!-- Bar 1: Ryzen 7 -->
+                    <div class="benchmark-bar-group">
+                        <div class="benchmark-bar-label">
+                            <span>AMD Ryzen™ 7 7730U</span>
+                            <span class="benchmark-value" id="val-ryzen7">100%</span>
+                        </div>
+                        <div class="benchmark-bar-wrapper">
+                            <div class="benchmark-bar accent-gradient" id="bar-ryzen7" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- Bar 2: Ryzen 5 -->
+                    <div class="benchmark-bar-group">
+                        <div class="benchmark-bar-label">
+                            <span>AMD Ryzen™ 5 7530U</span>
+                            <span class="benchmark-value" id="val-ryzen5">88%</span>
+                        </div>
+                        <div class="benchmark-bar-wrapper">
+                            <div class="benchmark-bar accent-gradient" id="bar-ryzen5" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <!-- Bar 3: Prev Gen -->
+                    <div class="benchmark-bar-group">
+                        <div class="benchmark-bar-label">
+                            <span>Previous Gen Core i5</span>
+                            <span class="benchmark-value" id="val-prevgen">65%</span>
+                        </div>
+                        <div class="benchmark-bar-wrapper">
+                            <div class="benchmark-bar muted" id="bar-prevgen" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="benchmark-note" id="benchmark-desc">Optimized for heavy spreadsheets, web browsing, and daily office tasks with high energy efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section id="specs" class="specs">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">Technical Mastery</h2>
+            <p class="section-subtitle reveal-on-scroll">Every detail engineered for performance.</p>
+            
+            <div class="specs-grid">
+                <!-- Processor -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-microchip"></i></div>
+                    <h4>Processor</h4>
+                    <p>AMD Ryzen™ 5 7530U (6 Cores/12 Threads) or Ryzen™ 7 7730U (8 Cores/16 Threads), up to 4.5 GHz boost, 16MB L3 cache</p>
+                </div>
+                <!-- Graphics -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-gamepad"></i></div>
+                    <h4>iGPU Graphics</h4>
+                    <p>AMD Radeon™ Graphics (7 cores @ 2000 MHz for R5; 8 cores @ 2000 MHz for R7). Support for DirectX® 12 & dual displays</p>
+                </div>
+                <!-- Memory -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-memory"></i></div>
+                    <h4>Memory (RAM)</h4>
+                    <p>Up to 32 GB DDR4-3200 MHz RAM (supports dual-channel mode via 2x upgradeable SODIMM slots)</p>
+                </div>
+                <!-- Storage -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-hdd"></i></div>
+                    <h4>Storage</h4>
+                    <p>Up to 1 TB PCIe® NVMe™ M.2 SSD (high-speed data reads, expandable storage options)</p>
+                </div>
+                <!-- Display -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-desktop"></i></div>
+                    <h4>Display Panel</h4>
+                    <p>14" diagonal, FHD (1920 x 1080), IPS, micro-edge, anti-glare, 250 nits brightness, 45% NTSC color gamut</p>
+                </div>
+                <!-- Battery Backup -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-battery-three-quarters"></i></div>
+                    <h4>Battery Backup</h4>
+                    <p>3-cell, 41 Wh Li-ion polymer. Up to 10.5 hours active mixed usage. HP Fast Charge (50% in 45 mins)</p>
+                </div>
+                <!-- Weight & Chassis -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-weight-hanging"></i></div>
+                    <h4>Weight & Chassis</h4>
+                    <p>Ultra-portable starting at 1.36 kg (3.0 lbs). Slim profile: 32.4 x 21.5 x 1.79 cm. Textured ash silver color</p>
+                </div>
+                <!-- Webcam & Audio -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-video"></i></div>
+                    <h4>Webcam & Audio</h4>
+                    <p>720p HD Camera with noise reduction & physical privacy shutter. Dual array mics & dual stereo speakers</p>
+                </div>
+                <!-- Wireless Connectivity -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-wifi"></i></div>
+                    <h4>Wireless Network</h4>
+                    <p>Realtek Wi-Fi 6E (2x2) and Bluetooth® 5.3 wireless card. Supports gigabit data speeds & low latency</p>
+                </div>
+                <!-- Security Shield -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Security Shield</h4>
+                    <p>HP Wolf Security for Business, discrete TPM 2.0 security chip, hardware-enforced BIOS protection</p>
+                </div>
+                <!-- Ports Suite -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fas fa-plug"></i></div>
+                    <h4>Ports Suite</h4>
+                    <p>1x USB Type-C® (5Gbps signaling, supports DisplayPort™ & power), 2x USB Type-A (5Gbps), 1x HDMI 1.4b, 1x Audio combo</p>
+                </div>
+                <!-- Operating System -->
+                <div class="spec-card glass reveal-on-scroll">
+                    <div class="spec-icon"><i class="fab fa-windows"></i></div>
+                    <h4>Operating System</h4>
+                    <p>Windows 11 Pro (business features & security management) or Windows 11 Home pre-installed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ports Section -->
+    <section id="ports" class="ports">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">Connectivity Hub</h2>
+            <p class="section-subtitle reveal-on-scroll">Equipped with all the ports you need for daily workflow.</p>
+            
+            <div class="ports-grid reveal-on-scroll">
+                <div class="ports-visual glass">
+                    <div class="ports-image-wrapper">
+                        <img src="./ChatGPT Image Jul 2, 2026, 08_57_01 PM.png" class="ports-diagram-image" alt="HP Laptop Ports Diagram">
+                        
+                        <!-- Hotspots positioned relative to the image coordinates -->
+                        <!-- Left Side Ports (Middle) -->
+                        <div class="port-hotspot" style="left: 19.5%; top: 56.5%;" data-port="usbal">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        <div class="port-hotspot" style="left: 32%; top: 56.5%;" data-port="hdmi">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        <div class="port-hotspot" style="left: 43.2%; top: 56.5%;" data-port="usbc">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        <div class="port-hotspot" style="left: 53.5%; top: 56.5%;" data-port="audio">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        
+                        <!-- Right Side Ports (Bottom) -->
+                        <div class="port-hotspot" style="left: 19.5%; top: 78.5%;" data-port="lock">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        <div class="port-hotspot" style="left: 36.3%; top: 78.5%;" data-port="ethernet">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        <div class="port-hotspot" style="left: 57.2%; top: 78.5%;" data-port="usba1">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        <div class="port-hotspot" style="left: 69%; top: 78.5%;" data-port="usba2">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                        <div class="port-hotspot" style="left: 82.5%; top: 78.5%;" data-port="power">
+                            <div class="hotspot-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="port-details glass">
+                    <div class="port-details-placeholder" id="port-placeholder">
+                        <i class="fas fa-plug port-details-icon-large"></i>
+                        <h4>Hover or Tap any Port Hotspot</h4>
+                        <p>Discover bandwidth speeds, capabilities, and external displays supported by each connector.</p>
+                    </div>
+                    <div class="port-details-content hide" id="port-content">
+                        <div class="port-header">
+                            <span class="port-badge" id="port-side-badge">Left Side</span>
+                            <h4 id="port-name">USB Type-C®</h4>
+                        </div>
+                        <p class="port-desc" id="port-description">5Gbps signaling rate, supporting power delivery and DisplayPort™ 1.4 for external 4K monitors.</p>
+                        <ul class="port-features-list" id="port-features">
+                            <li><i class="fas fa-check-circle"></i> 5 Gbps Data Transfer Speed</li>
+                            <li><i class="fas fa-check-circle"></i> External Monitor Output</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">Visual Precision</h2>
+            <p class="section-subtitle reveal-on-scroll">Crafted for aesthetics, built for function.</p>
+
+            <div class="gallery-grid">
+                <!-- Large Item -->
+                <div class="gallery-item large reveal-on-scroll">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 08_35_45 PM.png" alt="HP 245 G10 Front View" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
+                    <div class="gallery-caption">Sleek Front Profile</div>
+                </div>
+                <!-- Standard Item -->
+                <div class="gallery-item reveal-on-scroll">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 08_43_47 PM.png" alt="Keyboard Detail" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
+                    <div class="gallery-caption">Precision Keyboard</div>
+                </div>
+                <!-- Standard Item -->
+                <div class="gallery-item reveal-on-scroll">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 08_57_01 PM.png" alt="Side Ports" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
+                    <div class="gallery-caption">Connectivity Hub</div>
+                </div>
+                <!-- Wide Item -->
+                <div class="gallery-item wide reveal-on-scroll">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 09_24_22 PM.png" alt="Lifestyle Usage" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
+                    <div class="gallery-caption">Work Anywhere</div>
+                </div>
+                <!-- New Workspace Image -->
+                <div class="gallery-item wide reveal-on-scroll">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./hp_workspace_shot.jpg" alt="Cinematic Workspace Setup" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
+                    <div class="gallery-caption">Cinematic Workspace Setup</div>
+                </div>
+                <!-- New Profile Image -->
+                <div class="gallery-item reveal-on-scroll">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./hp_bezel_profile.jpg" alt="Ultra-Thin Display Bezel" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
+                    <div class="gallery-caption">Ultra-Thin Display Bezel</div>
+                </div>
+                <!-- Standard Item -->
+                <div class="gallery-item reveal-on-scroll">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="./ChatGPT Image Jul 2, 2026, 09_30_10 PM.png" alt="Display Quality" loading="lazy" decoding="async" fetchpriority="low" class="gallery-image">
+                    <div class="gallery-caption">Vivid FHD Display</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close image preview">&times;</button>
+            <img id="lightbox-img" src="" alt="Full Screen Preview">
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">User Perspectives</h2>
+            <p class="section-subtitle reveal-on-scroll">Trusted by professionals worldwide.</p>
+
+            <div class="review-slider reveal-on-scroll">
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"The HP 245 G10 is a powerhouse for the price. The AMD Ryzen processor handles my coding environments effortlessly, and the battery lasts through my entire workday."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="reviewer-img" loading="lazy" decoding="async">
+                        <div class="reviewer-info">
+                            <h5>James Carter</h5>
+                            <span>Software Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="review-text">"Sleek design and incredibly lightweight. I travel frequently for business, and this laptop fits perfectly into my workflow without weighing me down."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="reviewer-img" loading="lazy" decoding="async">
+                        <div class="reviewer-info">
+                            <h5>Sarah Jenkins</h5>
+                            <span>Marketing Director</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Outstanding value for money. As a computer science student, I need something reliable that doesn't break the bank. The keyboard is fantastic for coding."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="User" class="reviewer-img" loading="lazy" decoding="async">
+                        <div class="reviewer-info">
+                            <h5>Aarav Sharma</h5>
+                            <span>IIT Student & Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="review-text">"The screen is bright enough for indoor work and anti-glare helps during outdoor travel. Battery fast charging is a lifesaver when hopping between clients."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User" class="reviewer-img" loading="lazy" decoding="async">
+                        <div class="reviewer-info">
+                            <h5>Priya Patel</h5>
+                            <span>Freelance Designer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"The display is crisp and the keyboard is comfortable for long typing sessions. Excellent build quality for a business-class notebook."</p>
+                    <div class="reviewer">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User" class="reviewer-img" loading="lazy" decoding="async">
+                        <div class="reviewer-info">
+                            <h5>Michael Ross</h5>
+                            <span>Content Creator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">Common Questions</h2>
+            
+            <div class="faq-item reveal-on-scroll">
+                <div class="faq-question">
+                    Is the RAM upgradeable on the HP 245 G10?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, the HP 245 G10 features two SODIMM slots, allowing you to upgrade the memory up to 32 GB DDR4-3200 MHz depending on your configuration.
+                </div>
+            </div>
+
+            <div class="faq-item reveal-on-scroll">
+                <div class="faq-question">
+                    Does it support multiple external monitors?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, thanks to the HDMI 1.4b port and the USB Type-C® port (which supports DisplayPort™), you can connect multiple external displays to expand your workspace.
+                </div>
+            </div>
+
+            <div class="faq-item reveal-on-scroll">
+                <div class="faq-question">
+                    Does it come with pre-installed MS Office?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, select configurations come with Microsoft Office Home & Student pre-installed. Please check the product configuration summary for local details.
+                </div>
+            </div>
+
+            <div class="faq-item reveal-on-scroll">
+                <div class="faq-question">
+                    What is the warranty coverage in India?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    The laptop comes with a 1-year standard onsite warranty. HP has a wide service network across India, and you can also purchase extended warranty packs (HP Care Pack) for up to 3 years.
+                </div>
+            </div>
+
+            <div class="faq-item reveal-on-scroll">
+                <div class="faq-question">
+                    Can I play casual games on this laptop?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Yes, the integrated AMD Radeon™ Graphics can handle casual games like Minecraft, League of Legends, and CS:GO at low-to-medium settings smoothly, though it is not a dedicated gaming laptop.
+                </div>
+            </div>
+
+            <div class="faq-item reveal-on-scroll">
+                <div class="faq-question">
+                    What security features are included?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    The laptop comes equipped with HP Wolf Security for Business, which includes hardware-enforced security features to protect against BIOS-level attacks and malware.
+                </div>
+            </div>
+
+            <div class="faq-item reveal-on-scroll">
+                <div class="faq-question">
+                    How fast does the battery charge?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    With HP Fast Charge technology, you can go from 0 to 50% charge in approximately 45 minutes, ensuring you stay powered up even on the go.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configurator Section -->
+    <section id="configurator" class="configurator">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">Configure Your Laptop</h2>
+            <p class="section-subtitle reveal-on-scroll">Select specifications to build your perfect workspace partner.</p>
+            
+            <div class="configurator-grid reveal-on-scroll">
+                <div class="config-options glass">
+                    <!-- Option Group: CPU -->
+                    <div class="config-group">
+                        <label class="config-label"><i class="fas fa-microchip"></i> Processor</label>
+                        <div class="config-chips" data-group="cpu">
+                            <div class="config-chip active" data-value="r5" data-price="0">
+                                <span class="chip-name">AMD Ryzen™ 5 7530U</span>
+                                <span class="chip-price">Included</span>
+                            </div>
+                            <div class="config-chip" data-value="r7" data-price="9990">
+                                <span class="chip-name">AMD Ryzen™ 7 7730U</span>
+                                <span class="chip-price">+₹9,990</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Option Group: RAM -->
+                    <div class="config-group">
+                        <label class="config-label"><i class="fas fa-memory"></i> Memory (RAM)</label>
+                        <div class="config-chips" data-group="ram">
+                            <div class="config-chip active" data-value="8gb" data-price="0">
+                                <span class="chip-name">8 GB DDR4-3200</span>
+                                <span class="chip-price">Included</span>
+                            </div>
+                            <div class="config-chip" data-value="16gb" data-price="4990">
+                                <span class="chip-name">16 GB DDR4-3200</span>
+                                <span class="chip-price">+₹4,990</span>
+                            </div>
+                            <div class="config-chip" data-value="32gb" data-price="12490">
+                                <span class="chip-name">32 GB DDR4-3200</span>
+                                <span class="chip-price">+₹12,490</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Option Group: SSD -->
+                    <div class="config-group">
+                        <label class="config-label"><i class="fas fa-hdd"></i> Storage (SSD)</label>
+                        <div class="config-chips" data-group="ssd">
+                            <div class="config-chip active" data-value="256gb" data-price="0">
+                                <span class="chip-name">256 GB NVMe M.2 SSD</span>
+                                <span class="chip-price">Included</span>
+                            </div>
+                            <div class="config-chip" data-value="512gb" data-price="3290">
+                                <span class="chip-name">512 GB NVMe M.2 SSD</span>
+                                <span class="chip-price">+₹3,290</span>
+                            </div>
+                            <div class="config-chip" data-value="1tb" data-price="7990">
+                                <span class="chip-name">1 TB NVMe M.2 SSD</span>
+                                <span class="chip-price">+₹7,990</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Option Group: OS -->
+                    <div class="config-group">
+                        <label class="config-label"><i class="fab fa-windows"></i> Operating System</label>
+                        <div class="config-chips" data-group="os">
+                            <div class="config-chip active" data-value="home" data-price="0">
+                                <span class="chip-name">Windows 11 Home</span>
+                                <span class="chip-price">Included</span>
+                            </div>
+                            <div class="config-chip" data-value="pro" data-price="3990">
+                                <span class="chip-name">Windows 11 Pro</span>
+                                <span class="chip-price">+₹3,990</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="config-summary glass">
+                    <h4>Configuration Summary</h4>
+                    <ul class="summary-list">
+                        <li>
+                            <span class="summary-label">CPU:</span>
+                            <span class="summary-val" id="summary-cpu">AMD Ryzen™ 5 7530U</span>
+                        </li>
+                        <li>
+                            <span class="summary-label">RAM:</span>
+                            <span class="summary-val" id="summary-ram">8 GB DDR4-3200</span>
+                        </li>
+                        <li>
+                            <span class="summary-label">Storage:</span>
+                            <span class="summary-val" id="summary-ssd">256 GB NVMe M.2 SSD</span>
+                        </li>
+                        <li>
+                            <span class="summary-label">OS:</span>
+                            <span class="summary-val" id="summary-os">Windows 11 Home</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="price-box">
+                        <span class="price-label">Estimated Total:</span>
+                        <div class="price-val">₹<span id="calculated-price">39990</span></div>
+                    </div>
+                    
+                    <button class="btn-primary btn-buy-configured" id="btn-buy-configured">Order Custom Spec</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="buy" class="cta">
+        <div class="container">
+            <div class="cta-box glass reveal-on-scroll">
+                <h2>Ready to Elevate Your Work?</h2>
+                <p>Experience the reliability and performance of the HP 245 14-inch G10 today.</p>
+                <a href="#" class="btn-primary">Configure & Buy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">HP <span>245 G10</span></a>
+                    <p>Designed for the modern workforce. Delivering performance, security, and style in a compact 14-inch form factor.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#specs">Specs</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Drivers & Software</a></li>
+                        <li><a href="#">Warranty</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HP Development Company, L.P. All rights reserved. *Demo Website Concept.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Scroll Progress Indicator ---
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+
+            // Navbar Glass Effect
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        };
+
+        // --- Reveal on Scroll Animation ---
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll, .section-title, .section-subtitle').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // --- FAQ Accordion ---
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close all others
+                faqItems.forEach(i => i.classList.remove('active'));
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // --- Lightbox Functionality ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryCards = document.querySelectorAll('.gallery-item');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        const loadGalleryImage = (img) => {
+            if (!img || img.dataset.loaded === 'true') return;
+            const src = img.getAttribute('data-src');
+            if (!src) return;
+
+            img.src = src;
+            img.dataset.loaded = 'true';
+            img.classList.add('loaded');
+        };
+
+        const galleryObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadGalleryImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '200px 0px 200px 0px' });
+
+        document.querySelectorAll('.gallery-image').forEach(img => {
+            galleryObserver.observe(img);
+        });
+
+        galleryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('img');
+                if (!img) return;
+
+                loadGalleryImage(img);
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt || 'Full screen preview';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // --- Magnetic Button Effect (Subtle) ---
+        const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-nav');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // --- Benchmark Selector ---
+        const benchmarkData = {
+            productivity: {
+                ryzen7: '100%',
+                ryzen5: '88%',
+                prevgen: '65%',
+                desc: 'Optimized for heavy spreadsheets, web browsing, and daily office tasks with high energy efficiency.'
+            },
+            creation: {
+                ryzen7: '100%',
+                ryzen5: '80%',
+                prevgen: '54%',
+                desc: 'Ideal for video editing, photo retouching, and 3D modeling where multi-threaded Ryzen cores shine.'
+            },
+            multitasking: {
+                ryzen7: '100%',
+                ryzen5: '84%',
+                prevgen: '58%',
+                desc: 'Run virtual machines, multiple browser windows, and business apps side-by-side without lag.'
+            }
+        };
+
+        const tabs = document.querySelectorAll('.benchmark-tab');
+        const barR7 = document.getElementById('bar-ryzen7');
+        const barR5 = document.getElementById('bar-ryzen5');
+        const barPrev = document.getElementById('bar-prevgen');
+        const valR7 = document.getElementById('val-ryzen7');
+        const valR5 = document.getElementById('val-ryzen5');
+        const valPrev = document.getElementById('val-prevgen');
+        const benchDesc = document.getElementById('benchmark-desc');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const workload = tab.dataset.workload;
+                const data = benchmarkData[workload];
+
+                barR7.style.width = data.ryzen7;
+                barR5.style.width = data.ryzen5;
+                barPrev.style.width = data.prevgen;
+
+                valR7.textContent = data.ryzen7;
+                valR5.textContent = data.ryzen5;
+                valPrev.textContent = data.prevgen;
+                
+                benchDesc.textContent = data.desc;
+            });
+        });
+
+        // --- Ports Hover Details ---
+        const portsData = {
+            power: {
+                name: 'AC Power Input',
+                side: 'Right Side',
+                desc: 'Smart Pin AC power connector for the 45W or 65W smart adapter.',
+                features: ['Supports HP Fast Charge', 'Up to 50% battery in 45 mins', 'Pin-style tip adapter']
+            },
+            hdmi: {
+                name: 'HDMI 1.4b Port',
+                side: 'Left Side',
+                desc: 'Digital high-definition output port to connect external displays, projectors, or TVs.',
+                features: ['Up to 1080p @ 60Hz', 'Supports Audio Pass-through', 'Standard full-size HDMI']
+            },
+            usbc: {
+                name: 'USB Type-C® Port',
+                side: 'Left Side',
+                desc: 'SuperSpeed Type-C port with a 5Gbps signaling rate, supporting power delivery and video output.',
+                features: ['5 Gbps Transfer Speed', 'DisplayPort™ 1.4 video output', 'Device charging output']
+            },
+            audio: {
+                name: 'Stereo Headphone/Mic Combo Jack',
+                side: 'Left Side',
+                desc: 'Universal 3.5mm analog jack to connect wired headphones, headsets, or external speakers.',
+                features: ['Wired Audio Clarity', 'Microphone Input Support', 'Standard 3.5mm jack']
+            },
+            usbal: {
+                name: 'USB Type-A Port (Left)',
+                side: 'Left Side',
+                desc: 'SuperSpeed Type-A port with a 5Gbps signaling rate, ideal for fast external storage drives.',
+                features: ['5 Gbps Transfer Speed', 'Fast Data Backup', 'Plug-and-play support']
+            },
+            usba1: {
+                name: 'USB Type-A Port 1 (Right)',
+                side: 'Right Side',
+                desc: 'SuperSpeed Type-A port for connecting secondary devices like mice or flash drives.',
+                features: ['5 Gbps Transfer Speed', 'Peripheral connectivity', 'Reliable data transmission']
+            },
+            usba2: {
+                name: 'USB Type-A Port 2 (Right)',
+                side: 'Right Side',
+                desc: 'Additional SuperSpeed Type-A port to expand your workflow connections.',
+                features: ['5 Gbps Transfer Speed', 'Device charging compatible', 'Peripheral integration']
+            },
+            lock: {
+                name: 'Security Lock Slot',
+                side: 'Right Side',
+                desc: 'Kensington Nano security slot to anchor your laptop to desks or tables physically.',
+                features: ['Anti-theft deterrent', 'Compatible with standard locks', 'Hardened metal reinforcement']
+            },
+            ethernet: {
+                name: 'RJ-45 Ethernet Port',
+                side: 'Right Side',
+                desc: 'Fold-down Gigabit Ethernet port for high-speed, secure, and reliable wired network connections.',
+                features: ['Gigabit Networking (10/100/1000 Mbps)', 'Secure business connection', 'Fold-down space-saving design']
+            }
+        };
+
+        const hotspots = document.querySelectorAll('.port-hotspot');
+        const portPlaceholder = document.getElementById('port-placeholder');
+        const portContent = document.getElementById('port-content');
+        const portSideBadge = document.getElementById('port-side-badge');
+        const portName = document.getElementById('port-name');
+        const portDesc = document.getElementById('port-description');
+        const portFeatures = document.getElementById('port-features');
+
+        const showPortDetails = (portKey) => {
+            const data = portsData[portKey];
+            if (!data) return;
+
+            portPlaceholder.classList.add('hide');
+            portContent.classList.remove('hide');
+
+            portSideBadge.textContent = data.side;
+            portName.textContent = data.name;
+            portDesc.textContent = data.desc;
+
+            portFeatures.innerHTML = '';
+            data.features.forEach(feat => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check-circle"></i> ${feat}`;
+                portFeatures.appendChild(li);
+            });
+        };
+
+        hotspots.forEach(hotspot => {
+            const portKey = hotspot.dataset.port;
+            
+            hotspot.addEventListener('mouseenter', () => {
+                hotspots.forEach(h => h.classList.remove('active'));
+                hotspot.classList.add('active');
+                showPortDetails(portKey);
+            });
+
+            hotspot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                hotspots.forEach(h => h.classList.remove('active'));
+                hotspot.classList.add('active');
+                showPortDetails(portKey);
+            });
+        });
+
+        // --- Specs Configurator & Calculator ---
+        const basePrice = 39990;
+        const configSelection = {
+            cpu: { name: 'AMD Ryzen™ 5 7530U', price: 0 },
+            ram: { name: '8 GB DDR4-3200', price: 0 },
+            ssd: { name: '256 GB NVMe M.2 SSD', price: 0 },
+            os: { name: 'Windows 11 Home', price: 0 }
+        };
+
+        const configChips = document.querySelectorAll('.config-chip');
+        const priceVal = document.getElementById('calculated-price');
+        
+        const summaryCpu = document.getElementById('summary-cpu');
+        const summaryRam = document.getElementById('summary-ram');
+        const summarySsd = document.getElementById('summary-ssd');
+        const summaryOs = document.getElementById('summary-os');
+        const orderBtn = document.getElementById('btn-buy-configured');
+
+        const updatePrice = () => {
+            const totalPrice = basePrice + 
+                               configSelection.cpu.price + 
+                               configSelection.ram.price + 
+                               configSelection.ssd.price + 
+                               configSelection.os.price;
+            
+            let currentPrice = parseInt(priceVal.textContent) || basePrice;
+            const targetPrice = totalPrice;
+            let diff = targetPrice - currentPrice;
+            if (diff === 0) return;
+            const step = Math.sign(diff) * Math.max(10, Math.round(Math.abs(diff) / 10));
+            
+            const timer = setInterval(() => {
+                currentPrice += step;
+                if ((step > 0 && currentPrice >= targetPrice) || (step < 0 && currentPrice <= targetPrice)) {
+                    priceVal.textContent = targetPrice;
+                    clearInterval(timer);
+                } else {
+                    priceVal.textContent = currentPrice;
+                }
+            }, 15);
+        };
+
+        configChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const group = chip.parentElement.dataset.group;
+                const valueName = chip.querySelector('.chip-name').textContent;
+                const priceValue = parseInt(chip.dataset.price);
+
+                const siblings = chip.parentElement.querySelectorAll('.config-chip');
+                siblings.forEach(s => s.classList.remove('active'));
+                chip.classList.add('active');
+
+                configSelection[group] = { name: valueName, price: priceValue };
+
+                if (group === 'cpu') summaryCpu.textContent = valueName;
+                if (group === 'ram') summaryRam.textContent = valueName;
+                if (group === 'ssd') summarySsd.textContent = valueName;
+                if (group === 'os') summaryOs.textContent = valueName;
+
+                updatePrice();
+            });
+        });
+
+        orderBtn.addEventListener('click', () => {
+            alert(`Custom spec configured!\n\nCPU: ${configSelection.cpu.name}\nRAM: ${configSelection.ram.name}\nStorage: ${configSelection.ssd.name}\nOS: ${configSelection.os.name}\nTotal Price: ₹${priceVal.textContent}\n\nProceeding to mockup checkout...`);
+        });
+
+        // --- Mobile Menu Toggle ---
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
+            document.body.classList.toggle('menu-open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('open');
+                navLinks.classList.remove('open');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    </script>
+</body>
+</html>   
